@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Poort80.Umbraco.Validation</id>
-    <version>1</version>
+    <version>1.0.1</version>
     <title>Poort80.Umbraco.Validation asp.net dataanotations in Umbraco</title>
     <authors>Tim van Rooijen</authors>
     <owners>Poort80</owners>
