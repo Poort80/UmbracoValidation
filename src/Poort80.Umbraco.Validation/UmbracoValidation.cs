@@ -16,13 +16,13 @@ namespace Poort80.Umbraco.Validation
     {
         protected override ModelMetadata CreateMetadata(IEnumerable<Attribute> attributes, Type containerType, Func<object> modelAccessor, Type modelType, string propertyName)
         {
-            if (containerType == null || Attribute.GetCustomAttribute(containerType, typeof(UmbracoModelMetadataAttribute)) == null || Attribute.GetCustomAttribute(containerType.GetProperty(propertyName), typeof(NoMetadataAttribute)) != null)
+            if (containerType == null || Attribute.GetCustomAttribute(containerType, typeof(UmbracoValidationAttribute)) == null || Attribute.GetCustomAttribute(containerType.GetProperty(propertyName), typeof(NoMetadataAttribute)) != null)
             {
                 //default metadate provider
                 return base.CreateMetadata(attributes, containerType, modelAccessor, modelType, propertyName);
             }
 
-            var containerAttribute = (UmbracoModelMetadataAttribute)Attribute.GetCustomAttribute(containerType, typeof(UmbracoModelMetadataAttribute));
+            var containerAttribute = (UmbracoValidationAttribute)Attribute.GetCustomAttribute(containerType, typeof(UmbracoValidationAttribute));
 
             if (UmbracoContext.Current == null)
                 return base.CreateMetadata(attributes, containerType, modelAccessor, modelType, propertyName);
@@ -157,9 +157,9 @@ namespace Poort80.Umbraco.Validation
         }
     }
 
-    public class UmbracoModelMetadataAttribute : Attribute
+    public class UmbracoValidationAttribute : Attribute
     {
-        public UmbracoModelMetadataAttribute(UmbracoValidationMode mode = UmbracoValidationMode.Validation)
+        public UmbracoValidationAttribute(UmbracoValidationMode mode = UmbracoValidationMode.Validation)
         {
             Mode = mode;
         }
