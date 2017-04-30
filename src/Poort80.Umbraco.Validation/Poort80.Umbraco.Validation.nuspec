@@ -14,7 +14,7 @@
     <copyright>Copyright 2017</copyright>
     <tags>Umbraco Validation Data annotations</tags>
     <dependencies>
-      <dependency id="UmbracoCms" version="7.2"/>
+      <dependency id="UmbracoCms" version="7.5.13"/>
     </dependencies>
   </metadata>
 </package>
